@@ -1,0 +1,37 @@
+{
+  "intro_video_url": null,
+  "games": [
+    {
+      "id": "intro",
+      "title": "Video Pembuka",
+      "order": 1,
+      "is_active": true,
+      "path": "/games/modul2/level4-intro",
+      "thumbnail": null
+    },
+    {
+      "id": "detektif-ganda",
+      "title": "Detektif Ganda",
+      "order": 2,
+      "is_active": true,
+      "path": "/games/modul2/detektif-ganda",
+      "thumbnail": null
+    },
+    {
+      "id": "rotasi-bintang",
+      "title": "Rotasi Bintang",
+      "order": 3,
+      "is_active": true,
+      "path": "/games/modul2/rotasi-bintang",
+      "thumbnail": null
+    },
+    {
+      "id": "orkestra-ingatan",
+      "title": "Orkestra Ingatan",
+      "order": 4,
+      "is_active": true,
+      "path": "/games/modul2/orkestra-ingatan",
+      "thumbnail": null
+    }
+  ]
+}
