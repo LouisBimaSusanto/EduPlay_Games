@@ -1,18 +1,10 @@
 {
-  "intro_video_url": null,
+  "intro_video_url": "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=1&modestbranding=1&rel=0",
   "games": [
-    {
-      "id": "intro",
-      "title": "Video Pembuka",
-      "order": 1,
-      "is_active": true,
-      "path": "/games/modul2/level3-intro",
-      "thumbnail": null
-    },
     {
       "id": "angka-terbalik",
       "title": "Angka Terbalik",
-      "order": 2,
+      "order": 1,
       "is_active": true,
       "path": "/games/modul2/angka-terbalik",
       "thumbnail": null
@@ -20,7 +12,7 @@
     {
       "id": "koki-ajaib",
       "title": "Koki Ajaib",
-      "order": 3,
+      "order": 2,
       "is_active": true,
       "path": "/games/modul2/koki-ajaib",
       "thumbnail": null
@@ -28,7 +20,7 @@
     {
       "id": "detektor-matriks",
       "title": "Detektor Matriks",
-      "order": 4,
+      "order": 3,
       "is_active": true,
       "path": "/games/modul2/detektor-matriks",
       "thumbnail": null

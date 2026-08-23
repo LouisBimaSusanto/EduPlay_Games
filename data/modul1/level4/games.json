@@ -1,18 +1,10 @@
 {
-  "intro_video_url": null,
+  "intro_video_url": "https://www.youtube.com/embed/gJ4VXXP2Tqw?autoplay=1&controls=1&modestbranding=1&rel=0",
   "games": [
-    {
-      "id": "intro",
-      "title": "Video Pembuka",
-      "order": 1,
-      "is_active": true,
-      "path": "/games/modul1/level4-intro",
-      "thumbnail": null
-    },
     {
       "id": "brankas-ajaib",
       "title": "Brankas Ajaib",
-      "order": 2,
+      "order": 1,
       "is_active": true,
       "path": "/games/modul1/brankas-ajaib",
       "thumbnail": null
@@ -20,7 +12,7 @@
     {
       "id": "mesin-membongkar",
       "title": "Mesin Membongkar",
-      "order": 3,
+      "order": 2,
       "is_active": true,
       "path": "/games/modul1/mesin-membongkar",
       "thumbnail": null
@@ -28,7 +20,7 @@
     {
       "id": "mesin-mengganti",
       "title": "Mesin Mengganti",
-      "order": 4,
+      "order": 3,
       "is_active": true,
       "path": "/games/modul1/mesin-mengganti",
       "thumbnail": null
@@ -36,7 +28,7 @@
     {
       "id": "mesin-merakit",
       "title": "Mesin Merakit",
-      "order": 5,
+      "order": 4,
       "is_active": true,
       "path": "/games/modul1/mesin-merakit",
       "thumbnail": null
@@ -44,7 +36,7 @@
     {
       "id": "tongkat-penghilang",
       "title": "Tongkat Penghilang",
-      "order": 6,
+      "order": 5,
       "is_active": true,
       "path": "/games/modul1/tongkat-penghilang",
       "thumbnail": null

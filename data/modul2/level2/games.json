@@ -1,18 +1,10 @@
 {
-  "intro_video_url": null,
+  "intro_video_url": "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=1&modestbranding=1&rel=0",
   "games": [
-    {
-      "id": "intro",
-      "title": "Video Pembuka",
-      "order": 1,
-      "is_active": true,
-      "path": "/games/modul2/level2-intro",
-      "thumbnail": null
-    },
     {
       "id": "dokter-angka",
       "title": "Dokter Angka",
-      "order": 2,
+      "order": 1,
       "is_active": true,
       "path": "/games/modul2/dokter-angka",
       "thumbnail": null
@@ -20,7 +12,7 @@
     {
       "id": "kode-rahasia",
       "title": "Kode Rahasia",
-      "order": 3,
+      "order": 2,
       "is_active": true,
       "path": "/games/modul2/kode-rahasia",
       "thumbnail": null
@@ -28,7 +20,7 @@
     {
       "id": "peta-bajak-laut",
       "title": "Peta Bajak Laut",
-      "order": 4,
+      "order": 3,
       "is_active": true,
       "path": "/games/modul2/peta-bajak-laut",
       "thumbnail": null

@@ -1,18 +1,10 @@
 {
-  "intro_video_url": null,
+  "intro_video_url": "https://www.youtube.com/embed/gJ4VXXP2Tqw?autoplay=1&controls=1&modestbranding=1&rel=0",
   "games": [
-    {
-      "id": "intro",
-      "title": "Video Pembuka",
-      "order": 1,
-      "is_active": true,
-      "path": "/games/modul1/level6-intro",
-      "thumbnail": null
-    },
     {
       "id": "cermin-ajaib",
       "title": "Cermin Ajaib",
-      "order": 2,
+      "order": 1,
       "is_active": true,
       "path": "/games/modul1/cermin-ajaib",
       "thumbnail": null
@@ -20,7 +12,7 @@
     {
       "id": "gerbang-cahaya",
       "title": "Gerbang Cahaya",
-      "order": 3,
+      "order": 2,
       "is_active": true,
       "path": "/games/modul1/gerbang-cahaya",
       "thumbnail": null
@@ -28,7 +20,7 @@
     {
       "id": "jembatan-awan",
       "title": "Jembatan Awan",
-      "order": 4,
+      "order": 3,
       "is_active": true,
       "path": "/games/modul1/jembatan-awan",
       "thumbnail": null
@@ -36,7 +28,7 @@
     {
       "id": "penyihir-kata",
       "title": "Penyihir Kata",
-      "order": 5,
+      "order": 4,
       "is_active": true,
       "path": "/games/modul1/penyihir-kata",
       "thumbnail": null
@@ -44,7 +36,7 @@
     {
       "id": "peti-harta-karun",
       "title": "Peti Harta Karun",
-      "order": 6,
+      "order": 5,
       "is_active": true,
       "path": "/games/modul1/peti-harta-karun",
       "thumbnail": null

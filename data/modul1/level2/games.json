@@ -1,18 +1,10 @@
 {
-  "intro_video_url": null,
+  "intro_video_url": "https://www.youtube.com/embed/5mYI8JIfHmc?autoplay=1&controls=1&modestbranding=1&rel=0",
   "games": [
-    {
-      "id": "intro",
-      "title": "Video Pembuka",
-      "order": 1,
-      "is_active": true,
-      "path": "/games/modul1/level2-intro",
-      "thumbnail": null
-    },
     {
       "id": "katak-lompat",
       "title": "Katak Lompat",
-      "order": 2,
+      "order": 1,
       "is_active": true,
       "path": "/games/modul1/katak-lompat",
       "thumbnail": null
@@ -20,7 +12,7 @@
     {
       "id": "kembar-rima",
       "title": "Kembar Rima",
-      "order": 3,
+      "order": 2,
       "is_active": true,
       "path": "/games/modul1/kembar-rima",
       "thumbnail": null
@@ -28,7 +20,7 @@
     {
       "id": "pintu-onset",
       "title": "Pintu Onset",
-      "order": 4,
+      "order": 3,
       "is_active": true,
       "path": "/games/modul1/pintu-onset",
       "thumbnail": null
@@ -36,7 +28,7 @@
     {
       "id": "rumah-kembar",
       "title": "Rumah Kembar",
-      "order": 5,
+      "order": 4,
       "is_active": true,
       "path": "/games/modul1/rumah-kembar",
       "thumbnail": null
@@ -44,7 +36,7 @@
     {
       "id": "sulap-kiko",
       "title": "Sulap Kiko",
-      "order": 6,
+      "order": 5,
       "is_active": true,
       "path": "/games/modul1/sulap-kiko",
       "thumbnail": null

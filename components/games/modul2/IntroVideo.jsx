@@ -1,6 +1,5 @@
 'use client';
 import { useTTS } from "@/hooks/useAudio";
-import { GameWrapper } from "@/components/ui/GameWrapper";
 import { useEffect } from "react";
 
 export function IntroVideo({ onComplete }) {
@@ -22,10 +21,10 @@ export function IntroVideo({ onComplete }) {
   }, [onComplete]);
 
   return (
-    <GameWrapper>
+    <>
       <div className="w-full h-full flex items-center justify-center overflow-hidden bg-gray-900">
         <h1 className="text-white text-6xl font-black drop-shadow-xl">Video Pembuka Modul 2</h1>
       </div>
-    </GameWrapper>
+    </>
   );
 }

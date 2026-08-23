@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTTS } from "@/hooks/useAudio";
-import { GameWrapper } from "@/components/ui/GameWrapper";
 
 const ROUNDS = [
   { id: 1, word: "Susu", emoji: "🍼", instruction: "Su ... Su. Susu! Ada berapa ketukan? Tarik ke keranjang yang benar!", targetDots: 2, correctOffset: -100 },
@@ -63,8 +62,8 @@ export function GameKeranjang({ onComplete }) {
   if (!roundData) return null;
 
   return (
-    <GameWrapper>
-      <div className="w-full h-full flex flex-col items-center justify-between p-8 relative overflow-hidden">
+    <>
+      <div className="w-full h-full flex flex-col items-center justify-between p-8 relative overflow-hidden bg-gradient-to-b from-indigo-900 via-purple-600 to-emerald-400">
         
         {/* Progress Info */}
         <div className="absolute top-8 left-8 z-30 bg-black/30 backdrop-blur-md px-6 py-2 rounded-full border-2 border-white/20">
@@ -165,6 +164,6 @@ export function GameKeranjang({ onComplete }) {
       </div>
 
       </div>
-    </GameWrapper>
+    </>
   );
 }
