@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTTS } from "@/hooks/useAudio";
+import { GameWrapper } from "@/components/ui/GameWrapper";
 
 const ROUNDS = [
   { id: 1, name: "Sapi", emoji: "🐄", targetTaps: 2, instruction: "Sa... pi. Dua ketukan! Ayo pecahkan esnya!", text: ["Satu! Sa!", "Dua! Pi! Hore, sapi bebas!"] },
@@ -55,14 +56,16 @@ export function GamePaluEs({ onComplete }) {
   if (!roundData) return null;
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-between p-8 relative overflow-hidden">
-      
-      {/* Progress Info */}
-      <div className="absolute top-8 left-8 z-30 bg-black/30 backdrop-blur-md px-6 py-2 rounded-full border-2 border-white/20">
-        <span className="text-2xl font-black text-white">
-          {currentRound + 1} / {ROUNDS.length}
-        </span>
-      </div>
+  return (
+    <GameWrapper>
+      <div className="w-full h-full flex flex-col items-center justify-between p-8 relative overflow-hidden">
+        
+        {/* Progress Info */}
+        <div className="absolute top-8 left-8 z-30 bg-black/30 backdrop-blur-md px-6 py-2 rounded-full border-2 border-white/20">
+          <span className="text-2xl font-black text-white">
+            {currentRound + 1} / {ROUNDS.length}
+          </span>
+        </div>
 
       {/* Top Area: Ice Block & Animal */}
       <div className="w-full flex-1 flex flex-col items-center justify-center relative">
@@ -73,14 +76,14 @@ export function GamePaluEs({ onComplete }) {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", bounce: 0.5 }}
-            className="relative flex items-center justify-center w-64 h-64 md:w-96 md:h-96"
+            className="relative flex items-center justify-center w-96 h-96"
           >
             
             {/* The Frozen Animal */}
             <motion.span 
               animate={isBroken ? { scale: 1.2, y: [0, -20, 0] } : {}}
               transition={isBroken ? { duration: 0.5, repeat: 4 } : {}}
-              className="text-[10rem] md:text-[14rem] drop-shadow-xl z-10"
+              className="text-[14rem] drop-shadow-xl z-10"
             >
               {roundData.emoji}
             </motion.span>
@@ -115,7 +118,7 @@ export function GamePaluEs({ onComplete }) {
                   )}
                   {/* Visual "Ice" texture */}
                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-30 mix-blend-overlay"></div>
-                  <span className="text-[12rem] md:text-[16rem] opacity-30">🧊</span>
+                  <span className="text-[16rem] opacity-30">🧊</span>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -137,20 +140,20 @@ export function GamePaluEs({ onComplete }) {
       </div>
 
       {/* Bottom Area: Massive 3D Hammer Button */}
-      <div className="w-full flex justify-center pb-12 z-20">
+      <div className="w-full flex justify-center pb-12 z-20 shrink-0">
         <button 
           onClick={handleTap}
           disabled={isBroken}
           className={`
             bg-linear-to-tr from-purple-500 to-pink-400 
-            text-white font-black text-6xl md:text-8xl 
-            py-8 px-16 md:py-12 md:px-24
+            text-white font-black text-8xl 
+            py-12 px-24
             rounded-[4rem] 
             border-8 border-[#FFF]
-            border-b-24 border-b-purple-800 
-            shadow-[0_20px_40px_rgba(128,0,128,0.4),inset_0_10px_20px_rgba(255,255,255,0.6)]
+            border-b-[24px] border-b-purple-800 
+            shadow-[0_10px_20px_rgba(128,0,128,0.4),inset_0_5px_10px_rgba(255,255,255,0.6)]
             active:border-b-8 active:translate-y-4 
-            active:shadow-[0_10px_20px_rgba(128,0,128,0.4),inset_0_5px_10px_rgba(255,255,255,0.6)]
+            active:shadow-[0_5px_10px_rgba(128,0,128,0.4),inset_0_5px_10px_rgba(255,255,255,0.6)]
             transition-all duration-100 ease-out
             ${!isBroken ? 'animate-[bounce_2s_infinite]' : 'opacity-0 scale-50 pointer-events-none transition-all duration-500'}
           `}
@@ -159,6 +162,7 @@ export function GamePaluEs({ onComplete }) {
         </button>
       </div>
 
-    </div>
+      </div>
+    </GameWrapper>
   );
 }

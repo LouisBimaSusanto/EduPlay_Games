@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTTS } from "@/hooks/useAudio";
+import { GameWrapper } from "@/components/ui/GameWrapper";
 
 const ROUNDS = [
   { id: 1, word: "Susu", emoji: "🍼", instruction: "Su ... Su. Susu! Ada berapa ketukan? Tarik ke keranjang yang benar!", targetDots: 2, correctOffset: -100 },
@@ -62,23 +63,24 @@ export function GameKeranjang({ onComplete }) {
   if (!roundData) return null;
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-between p-4 md:p-8 relative overflow-hidden">
-      
-      {/* Progress Info */}
-      <div className="absolute top-8 left-8 z-30 bg-black/30 backdrop-blur-md px-6 py-2 rounded-full border-2 border-white/20">
-        <span className="text-2xl font-black text-white">
-          {currentRound + 1} / {ROUNDS.length}
-        </span>
-      </div>
-
-      {/* Title / Helper Text */}
-      <div className="w-full flex justify-center pt-8 z-30">
-        <div className="bg-black/40 backdrop-blur-md px-8 py-4 rounded-full border-4 border-white/20">
-          <span className="text-4xl md:text-5xl font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] uppercase tracking-widest">
-            {roundData.word}
+    <GameWrapper>
+      <div className="w-full h-full flex flex-col items-center justify-between p-8 relative overflow-hidden">
+        
+        {/* Progress Info */}
+        <div className="absolute top-8 left-8 z-30 bg-black/30 backdrop-blur-md px-6 py-2 rounded-full border-2 border-white/20">
+          <span className="text-2xl font-black text-white">
+            {currentRound + 1} / {ROUNDS.length}
           </span>
         </div>
-      </div>
+
+        {/* Title / Helper Text */}
+        <div className="w-full flex justify-center pt-8 z-30">
+          <div className="bg-black/40 backdrop-blur-md px-8 py-4 rounded-full border-4 border-white/20">
+            <span className="text-5xl font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] uppercase tracking-widest">
+              {roundData.word}
+            </span>
+          </div>
+        </div>
 
       {/* Center Action Area */}
       <div className="flex-1 w-full flex flex-row items-center justify-between relative mt-8">
@@ -87,11 +89,11 @@ export function GameKeranjang({ onComplete }) {
         <div className="flex flex-col items-center z-10 w-1/3">
           <div className="relative group perspective-[1000px]">
              {/* 3D Basket */}
-             <div className="text-[10rem] md:text-[14rem] drop-shadow-[0_30px_30px_rgba(0,0,0,0.8)]">🧺</div>
+             <div className="text-[14rem] drop-shadow-[0_30px_30px_rgba(0,0,0,0.8)]">🧺</div>
              {/* The 2 Dots Label */}
              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/90 px-6 py-3 rounded-full border-4 border-[#8E2DE2] shadow-xl flex gap-2">
-               <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#8E2DE2]" />
-               <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#8E2DE2]" />
+               <div className="w-8 h-8 rounded-full bg-[#8E2DE2]" />
+               <div className="w-8 h-8 rounded-full bg-[#8E2DE2]" />
              </div>
              {/* Glowing drop target highlight */}
              <div className={`absolute inset-0 rounded-[4rem] transition-colors blur-xl ${dragState === "idle" ? 'bg-green-400/0 group-hover:bg-green-400/20' : ''}`} />
@@ -125,7 +127,7 @@ export function GameKeranjang({ onComplete }) {
                 dragElastic={0.2}
                 onDragEnd={handleDragEnd}
                 whileDrag={{ scale: 1.2, cursor: "grabbing" }}
-                className="text-[8rem] md:text-[12rem] cursor-grab drop-shadow-[0_20px_20px_rgba(0,0,0,0.6)] z-30 mb-16"
+                className="text-[12rem] cursor-grab drop-shadow-[0_20px_20px_rgba(0,0,0,0.6)] z-30 mb-16"
               >
                 {roundData.emoji}
               </motion.div>
@@ -148,12 +150,12 @@ export function GameKeranjang({ onComplete }) {
         <div className="flex flex-col items-center z-10 w-1/3">
           <div className="relative group perspective-[1000px]">
              {/* 3D Basket */}
-             <div className="text-[10rem] md:text-[14rem] drop-shadow-[0_30px_30px_rgba(0,0,0,0.8)]">🧺</div>
+             <div className="text-[14rem] drop-shadow-[0_30px_30px_rgba(0,0,0,0.8)]">🧺</div>
              {/* The 3 Dots Label */}
              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/90 px-6 py-3 rounded-full border-4 border-[#F5A623] shadow-xl flex gap-2">
-               <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#F5A623]" />
-               <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#F5A623]" />
-               <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#F5A623]" />
+               <div className="w-6 h-6 rounded-full bg-[#F5A623]" />
+               <div className="w-6 h-6 rounded-full bg-[#F5A623]" />
+               <div className="w-6 h-6 rounded-full bg-[#F5A623]" />
              </div>
              {/* Glowing drop target highlight */}
              <div className={`absolute inset-0 rounded-[4rem] transition-colors blur-xl ${dragState === "idle" ? 'bg-red-400/0 group-hover:bg-red-400/20' : ''}`} />
@@ -162,6 +164,7 @@ export function GameKeranjang({ onComplete }) {
 
       </div>
 
-    </div>
+      </div>
+    </GameWrapper>
   );
 }

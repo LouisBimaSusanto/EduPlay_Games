@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTTS } from "@/hooks/useAudio";
+import { GameWrapper } from "@/components/ui/GameWrapper";
 
 const ROUNDS = [
   { id: 1, word: "Baju", targetEmoji: "👕", instruction: "Ba ... Ju. Baju! Yang mana baju?", options: [{ id: "buku", emoji: "📚" }, { id: "baju", emoji: "👕", correct: true }, { id: "bola", emoji: "⚽" }] },
@@ -64,14 +65,16 @@ export function GameKereta({ onComplete }) {
   if (!roundData) return null;
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-between p-8 relative overflow-hidden">
-      
-      {/* Progress Info */}
-      <div className="absolute top-8 left-8 z-30 bg-black/30 backdrop-blur-md px-6 py-2 rounded-full border-2 border-white/20">
-        <span className="text-2xl font-black text-white">
-          {currentRound + 1} / {ROUNDS.length}
-        </span>
-      </div>
+  return (
+    <GameWrapper>
+      <div className="w-full h-full flex flex-col items-center justify-between p-8 relative overflow-hidden">
+        
+        {/* Progress Info */}
+        <div className="absolute top-8 left-8 z-30 bg-black/30 backdrop-blur-md px-6 py-2 rounded-full border-2 border-white/20">
+          <span className="text-2xl font-black text-white">
+            {currentRound + 1} / {ROUNDS.length}
+          </span>
+        </div>
 
       {/* Top Area: Train & Empty Box */}
       <div className="w-full flex-1 flex flex-col items-center justify-center relative">
@@ -88,11 +91,11 @@ export function GameKereta({ onComplete }) {
             }}
             className="relative flex items-center"
           >
-            <span className="text-[12rem] md:text-[18rem] drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] z-20">
+            <span className="text-[18rem] drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] z-20">
               🚂
             </span>
             {/* Cargo Box */}
-            <div className="w-48 h-48 md:w-64 md:h-64 border-12 border-dashed border-[#FFD700] rounded-[3rem] bg-black/40 shadow-[inset_0_0_50px_rgba(255,215,0,0.3)] ml-4 flex items-center justify-center relative overflow-hidden">
+            <div className="w-64 h-64 border-[12px] border-dashed border-[#FFD700] rounded-[3rem] bg-black/40 shadow-[inset_0_0_50px_rgba(255,215,0,0.3)] ml-4 flex items-center justify-center relative overflow-hidden">
                {/* Drop target highlight */}
                <div className="absolute inset-0 bg-[#FFD700]/20 animate-[pulse-glow_2s_infinite]" />
                
@@ -103,7 +106,7 @@ export function GameKereta({ onComplete }) {
                      initial={{ scale: 0, opacity: 0 }}
                      animate={{ scale: 1, opacity: 1 }}
                      transition={{ type: "spring", bounce: 0.6 }}
-                     className="text-[8rem] md:text-[10rem] drop-shadow-xl z-30"
+                     className="text-[10rem] drop-shadow-xl z-30"
                    >
                      {roundData.targetEmoji}
                    </motion.span>
@@ -115,7 +118,7 @@ export function GameKereta({ onComplete }) {
       </div>
 
       {/* Bottom Area: Massive 3D Option Buttons */}
-      <div className="w-full flex flex-row items-center justify-center gap-6 md:gap-12 pb-12 z-20">
+      <div className="w-full flex flex-row items-center justify-center gap-12 pb-12 z-20 shrink-0">
         <AnimatePresence mode="popLayout">
           {!isSuccess && roundData.options.map((opt, i) => {
             const isSelected = selectedItem === opt.id;
@@ -134,17 +137,17 @@ export function GameKereta({ onComplete }) {
                   relative
                   bg-linear-to-tr from-blue-500 to-cyan-300 
                   text-white font-black
-                  p-8 md:p-12
+                  p-12
                   rounded-[3rem] 
                   border-[6px] border-[#FFF]
-                  border-b-20 border-b-blue-800 
-                  shadow-[0_20px_40px_rgba(0,0,255,0.4),inset_0_10px_20px_rgba(255,255,255,0.6)]
+                  border-b-[20px] border-b-blue-800 
+                  shadow-[0_10px_20px_rgba(0,0,255,0.4),inset_0_5px_10px_rgba(255,255,255,0.6)]
                   active:border-b-[6px] active:translate-y-3.5 
                   transition-all duration-300 ease-out
                   ${isWrong ? 'animate-[shake_0.5s_ease-in-out] bg-linear-to-tr from-red-500 to-rose-400 border-b-red-800' : 'hover:-translate-y-2'}
                 `}
               >
-                <span className="text-6xl md:text-8xl drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)]">
+                <span className="text-8xl drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)]">
                   {opt.emoji}
                 </span>
               </motion.button>
@@ -153,6 +156,7 @@ export function GameKereta({ onComplete }) {
         </AnimatePresence>
       </div>
 
-    </div>
+      </div>
+    </GameWrapper>
   );
 }

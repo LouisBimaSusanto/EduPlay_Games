@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTTS } from "@/hooks/useAudio";
+import { GameWrapper } from "@/components/ui/GameWrapper";
 
 const ROUNDS = [
   { id: 1, word: "Sepeda", instruction: "Se ... Pe ... Da. Sepeda! Yang mana sepeda?", options: [{ id: "kamera", emoji: "📸" }, { id: "sepeda", emoji: "🚲", correct: true }, { id: "sepatu", emoji: "👞" }] },
@@ -56,23 +57,25 @@ export function GamePancuran({ onComplete }) {
   if (!roundData) return null;
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-between p-8 relative overflow-hidden">
-      
-      {/* Progress Info */}
-      <div className="absolute top-8 left-8 z-30 bg-black/30 backdrop-blur-md px-6 py-2 rounded-full border-2 border-white/20">
-        <span className="text-2xl font-black text-white">
-          {currentRound + 1} / {ROUNDS.length}
-        </span>
-      </div>
+  return (
+    <GameWrapper>
+      <div className="w-full h-full flex flex-col items-center justify-between p-8 relative overflow-hidden">
+        
+        {/* Progress Info */}
+        <div className="absolute top-8 left-8 z-30 bg-black/30 backdrop-blur-md px-6 py-2 rounded-full border-2 border-white/20">
+          <span className="text-2xl font-black text-white">
+            {currentRound + 1} / {ROUNDS.length}
+          </span>
+        </div>
 
       {/* Top Area: Kiko & Cauldron */}
-      <div className="w-full flex-1 flex flex-row items-end justify-center relative pb-8 md:pb-16 gap-4 md:gap-12">
+      <div className="w-full flex-1 flex flex-row items-end justify-center relative pb-16 gap-12">
         
         {/* Kiko the Fox */}
         <motion.div 
           animate={isSuccess ? { y: [0, -30, 0], rotate: [0, -10, 10, 0] } : { y: [0, -10, 0] }}
           transition={{ duration: isSuccess ? 0.5 : 2, repeat: isSuccess ? 4 : Infinity }}
-          className="text-[10rem] md:text-[14rem] drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] z-20"
+          className="text-[14rem] drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] z-20"
         >
           🦊
         </motion.div>
@@ -86,7 +89,7 @@ export function GamePancuran({ onComplete }) {
                 key={i}
                 animate={{ y: [0, -60], opacity: [0, 1, 0], scale: [0.5, 1.5] }}
                 transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
-                className="w-6 h-6 md:w-8 md:h-8 bg-[#00E5C8] rounded-full mix-blend-screen shadow-[0_0_10px_#00E5C8]"
+                className="w-8 h-8 bg-[#00E5C8] rounded-full mix-blend-screen shadow-[0_0_10px_#00E5C8]"
               />
             ))}
           </div>
@@ -94,7 +97,7 @@ export function GamePancuran({ onComplete }) {
           <motion.div 
             animate={isSuccess ? { scale: [1, 1.2, 1], filter: ["hue-rotate(0deg)", "hue-rotate(90deg)", "hue-rotate(0deg)"] } : {}}
             transition={{ duration: 1, repeat: isSuccess ? 2 : 0 }}
-            className="text-[12rem] md:text-[16rem] drop-shadow-[0_20px_40px_rgba(0,229,200,0.6)] z-30"
+            className="text-[16rem] drop-shadow-[0_20px_40px_rgba(0,229,200,0.6)] z-30"
           >
             🍲
           </motion.div>
@@ -115,7 +118,7 @@ export function GamePancuran({ onComplete }) {
       </div>
 
       {/* Bottom Area: 3 Glowing Drawers/Buttons */}
-      <div className="w-full flex flex-row items-center justify-center gap-6 md:gap-12 pb-12 z-20">
+      <div className="w-full flex flex-row items-center justify-center gap-12 pb-12 z-20 shrink-0">
         <AnimatePresence mode="popLayout">
           {!isSuccess && roundData.options.map((opt, i) => {
             const isSelected = selectedItem === opt.id;
@@ -134,18 +137,18 @@ export function GamePancuran({ onComplete }) {
                   relative
                   bg-linear-to-tr from-[#8E2DE2] to-[#4A00E0] 
                   text-white font-black
-                  w-32 h-32 md:w-48 md:h-48
+                  w-48 h-48
                   flex items-center justify-center
                   rounded-4xl 
                   border-[6px] border-[#FFF]
                   border-b-16 border-b-[#2A0080] 
-                  shadow-[0_20px_40px_rgba(142,45,226,0.6),inset_0_10px_20px_rgba(255,255,255,0.4)]
+                  shadow-[0_10px_20px_rgba(142,45,226,0.6),inset_0_5px_10px_rgba(255,255,255,0.4)]
                   active:border-b-[6px] active:translate-y-2.5 
                   transition-all duration-300 ease-out
                   ${isWrong ? 'animate-[shake_0.5s_ease-in-out] bg-linear-to-tr from-red-500 to-rose-400 border-b-red-800' : 'hover:-translate-y-2'}
                 `}
               >
-                <span className="text-[5rem] md:text-[7rem] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
+                <span className="text-[7rem] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
                   {opt.emoji}
                 </span>
               </motion.button>
@@ -154,6 +157,7 @@ export function GamePancuran({ onComplete }) {
         </AnimatePresence>
       </div>
 
-    </div>
+      </div>
+    </GameWrapper>
   );
 }
